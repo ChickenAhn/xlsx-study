@@ -1,10 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 function Result(props) {
-  return <div />
+  const { data } = props
+  return <div>{data && JSON.stringify(data)}</div>
 }
 
-Result.propTypes = {}
+// Result.propTypes = {}
 
 export default Result

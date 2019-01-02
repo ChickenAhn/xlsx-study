@@ -1,11 +1,12 @@
 import React from 'react'
-import { Grid, Typography, withStyles } from '@material-ui/core'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 
+import { Grid, Typography, withStyles } from '@material-ui/core'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import green from '@material-ui/core/colors/green'
 import grey from '@material-ui/core/colors/grey'
-import FileInput from './FileInput'
+
+import Parser from './Parser'
 
 const styles = theme => ({
   root: {
@@ -40,8 +41,9 @@ const App = props => {
             xlsx
           </Typography>
         </Grid>
-        <Grid item xs={12} md={10} />
-        <Parser />
+        <Grid item xs={12} md={10}>
+          <Parser />
+        </Grid>
       </Grid>
     </MuiThemeProvider>
   )
