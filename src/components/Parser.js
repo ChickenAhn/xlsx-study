@@ -49,6 +49,9 @@ function Parser(props) {
       if (result) {
         setTemplate(result.template)
       }
+      const r = findHeaderIndex(json)
+      console.log(r)
+      console.log(treeify(r))
     }
     if (rABS) reader.readAsBinaryString(file)
     else reader.readAsArrayBuffer(file)

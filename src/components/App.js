@@ -1,12 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
 import { Grid, Typography, withStyles } from '@material-ui/core'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import green from '@material-ui/core/colors/green'
 import grey from '@material-ui/core/colors/grey'
 
 import Parser from './Parser'
+import PermanentDrawer from './PermanentDrawer'
+import Home from './Home'
+import CommentChecker from './CommentChecker'
 
 const styles = theme => ({
   root: {
@@ -35,16 +40,19 @@ const App = props => {
   const { classes } = props
   return (
     <MuiThemeProvider theme={theme}>
-      <Grid container className={classes.root} spacing={16} justify="center">
-        <Grid item xs={12} className={classes.header}>
-          <Typography className={classes.title} variant="h4" gutterBottom>
-            xlsx
-          </Typography>
-        </Grid>
+      <Router>
+        <PermanentDrawer>
+          <Route exact path="/" component={Home} />
+          <Route path="/parser" component={Parser} />
+          <Route path="/comment-checker" component={CommentChecker} />
+        </PermanentDrawer>
+      </Router>
+      {/* <Grid container className={classes.root} spacing={16} justify="center">
+        <Grid item xs={12} className={classes.header} />
         <Grid item xs={12} md={10}>
-          <Parser />
+          
         </Grid>
-      </Grid>
+      </Grid> */}
     </MuiThemeProvider>
   )
 }
