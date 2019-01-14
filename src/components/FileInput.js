@@ -28,19 +28,26 @@ const styles = theme => ({
 })
 
 function FileInput(props) {
-  const { classes, file = null, handleChange, handleParse } = props
+  const { classes, files = null, handleChange } = props
+  console.log(files)
+  let totalSize = 0
+  files &&
+    Object.keys(files).map(n => {
+      totalSize += files[n].size
+    })
   return (
     <Paper className={classes.root} elevation={1}>
-      {file ? (
+      {files ? (
         <>
           <CheckIcon className={classes.fileIcon} color="primary" />
-          <Typography variant="subtitle2">{file.name}</Typography>
+          <Typography variant="subtitle2">{files[0].name}</Typography>
           <Typography
             className={classes.fileSize}
             variant="subtitle2"
             color="textSecondary"
           >
-            {BytesToSize(file.size)}
+            {files.length > 1 ? `외 ${files.length - 1}개 ` : ''}
+            {BytesToSize(totalSize)}
           </Typography>
         </>
       ) : (
@@ -56,12 +63,13 @@ function FileInput(props) {
             id="flat-button-file"
             type="file"
             onChange={event => handleChange(event)}
+            multiple
           />
           <Button component="span">upload</Button>
         </label>
-        <Button component="span" disabled={!file} onClick={handleParse}>
+        {/* <Button component="span" disabled={!file} onClick={handleParse}>
           parse
-        </Button>
+        </Button> */}
       </div>
     </Paper>
   )
@@ -69,8 +77,8 @@ function FileInput(props) {
 FileInput.propTypes = {
   classes: PropTypes.instanceOf(Object),
   file: PropTypes.instanceOf(Object),
-  handleChange: PropTypes.func,
-  handleParse: PropTypes.func
+  handleChange: PropTypes.func
+  // handleParse: PropTypes.func
 }
 
 export default withStyles(styles)(FileInput)

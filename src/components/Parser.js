@@ -16,7 +16,7 @@ const styles = theme => ({
 function Parser(props) {
   const { classes } = props
 
-  const [file, setFile] = useState()
+  const [files, setFile] = useState()
   const [template, setTemplate] = useState(false)
   const [data, setData] = useState()
 
@@ -53,14 +53,14 @@ function Parser(props) {
       console.log(r)
       console.log(treeify(r))
     }
-    if (rABS) reader.readAsBinaryString(file)
-    else reader.readAsArrayBuffer(file)
+    if (rABS) reader.readAsBinaryString(files[0])
+    else reader.readAsArrayBuffer(files[0])
   }
 
   return (
     <>
       <FileInput
-        file={file}
+        files={files}
         handleChange={handleChange}
         handleParse={handleParse}
       />
