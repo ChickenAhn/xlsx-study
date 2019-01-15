@@ -40,10 +40,10 @@ const menues = [
     name: 'Home',
     link: '/'
   },
-  {
-    name: 'Parser',
-    link: 'parser'
-  },
+  // {
+  //   name: 'Parser',
+  //   link: 'parser'
+  // },
   {
     name: 'Comment Checker',
     link: 'comment-checker'
