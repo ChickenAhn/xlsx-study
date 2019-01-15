@@ -6,7 +6,8 @@ import {
   Grid,
   IconButton
 } from '@material-ui/core'
-import CommentIcon from '@material-ui/icons/Comment'
+import { MessageSquare } from 'react-feather'
+
 const styles = theme => ({
   paper: {
     display: 'flex',
@@ -38,7 +39,6 @@ function FileDetail(props) {
           return cells.map(cell => {
             const [cellIndex, comment] = Object.entries(cell)[0]
             return comment.map((c, index) => {
-              console.log(c)
               return (
                 <Grid item xs={12} key={`${sheetName}-${cellIndex}-${index}`}>
                   <Paper className={classes.paper} elevation={1}>
@@ -46,7 +46,7 @@ function FileDetail(props) {
                       <Grid item xs={12} md={3} lg={2}>
                         <div className={classes.commentLabel}>
                           <IconButton>
-                            <CommentIcon fontSize="small" />
+                            <MessageSquare />
                           </IconButton>
                           <div className={classes.commentLocation}>
                             <Typography

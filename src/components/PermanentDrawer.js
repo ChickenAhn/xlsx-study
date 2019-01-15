@@ -9,6 +9,8 @@ import List from '@material-ui/core/List'
 import Divider from '@material-ui/core/Divider'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import { Home, MessageSquare } from 'react-feather'
 
 const drawerWidth = 240
 
@@ -18,7 +20,7 @@ const styles = theme => ({
   },
   appBar: {
     width: `calc(100% - ${drawerWidth}px)`,
-    marginRight: drawerWidth
+    marginLeft: drawerWidth
   },
   drawer: {
     width: drawerWidth,
@@ -38,7 +40,8 @@ const styles = theme => ({
 const menues = [
   {
     name: 'Home',
-    link: '/'
+    link: '/',
+    icon: <Home />
   },
   // {
   //   name: 'Parser',
@@ -46,7 +49,8 @@ const menues = [
   // },
   {
     name: 'Comment Checker',
-    link: 'comment-checker'
+    link: 'comment-checker',
+    icon: <MessageSquare />
   }
 ]
 
@@ -56,26 +60,31 @@ function PermanentDrawer(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <main className={classes.content}>{children}</main>
       <Drawer
         className={classes.drawer}
         variant="permanent"
         classes={{
           paper: classes.drawerPaper
         }}
-        anchor="right"
+        anchor="left"
       >
-        <div className={classes.toolbar} />
+        <List>
+          <ListItem>
+            <ListItemText primary="Xlsx-study" secondary="datalobby v0.1.0" />
+          </ListItem>
+        </List>
         <Divider />
         <List>
           {menues.map((menu, index) => (
             <ListItem component={Link} to={menu.link} key={index}>
+              <ListItemIcon>{menu.icon}</ListItemIcon>
               <ListItemText primary={menu.name} />
             </ListItem>
           ))}
         </List>
         <Divider />
       </Drawer>
+      <main className={classes.content}>{children}</main>
     </div>
   )
 }

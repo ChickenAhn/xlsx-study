@@ -26,7 +26,6 @@ async function checkComment(file) {
     let result = []
 
     const workbook = await readFileAsync(file)
-    console.log(workbook)
 
     Object.keys(workbook.Sheets).map(sheetName => {
       const comment = getComment(workbook.Sheets[sheetName])
