@@ -29,7 +29,6 @@ const styles = theme => ({
 
 function FileInput(props) {
   const { classes, files = null, handleChange } = props
-  console.log(files)
   let totalSize = 0
   files &&
     Object.keys(files).map(n => {

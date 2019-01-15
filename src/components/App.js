@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import { Grid, Typography, withStyles } from '@material-ui/core'
+import { withStyles } from '@material-ui/core'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import green from '@material-ui/core/colors/green'
 import grey from '@material-ui/core/colors/grey'
@@ -12,6 +12,7 @@ import Parser from './Parser'
 import PermanentDrawer from './PermanentDrawer'
 import Home from './Home'
 import CommentChecker from './CommentChecker'
+import { lightBlue } from '@material-ui/core/colors'
 
 const styles = theme => ({
   root: {
@@ -31,8 +32,8 @@ const theme = createMuiTheme({
     useNextVariants: true
   },
   palette: {
-    primary: green,
-    secondary: grey
+    primary: { 500: lightBlue[500] }
+    // secondary: grey
   }
 })
 
