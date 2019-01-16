@@ -34,18 +34,25 @@ function FileInput(props) {
     Object.keys(files).map(n => {
       totalSize += files[n].size
     })
+  const lastFileName =
+    (files &&
+      Object.keys(files).length > 0 &&
+      Object.values(files)[Object.values(files).length - 1].name) ||
+    ''
   return (
     <Paper className={classes.root} elevation={1}>
       {files ? (
         <>
           <CheckIcon className={classes.fileIcon} color="primary" />
-          <Typography variant="subtitle2">{files[0].name}</Typography>
+          <Typography variant="subtitle2">{lastFileName}</Typography>
           <Typography
             className={classes.fileSize}
             variant="subtitle2"
             color="textSecondary"
           >
-            {files.length > 1 ? `외 ${files.length - 1}개 ` : ''}
+            {Object.keys(files).length > 1
+              ? `외 ${Object.keys(files).length - 1}개 `
+              : ''}
             {BytesToSize(totalSize)}
           </Typography>
         </>

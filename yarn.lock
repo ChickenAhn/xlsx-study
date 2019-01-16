@@ -2476,7 +2476,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.3, classnames@^2.2.5:
+classnames@^2.2.3, classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -8585,6 +8585,13 @@ react-scripts@2.1.2:
     workbox-webpack-plugin "3.6.3"
   optionalDependencies:
     fsevents "1.2.4"
+
+react-spring@^7.2.8:
+  version "7.2.8"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-7.2.8.tgz#a1f49653393332bf84431a898993eda2f3212e42"
+  integrity sha512-wgK0eXjWR5yT12kAd0b6CXF73qcoisTJF7vt8qw/IZmeYcPm/GA3zGV5MQ8R2hicbVwc5oV6FGFPSbkAFJ6pdA==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
 
 react-transition-group@^2.2.1:
   version "2.5.2"

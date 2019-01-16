@@ -32,7 +32,11 @@ const theme = createMuiTheme({
     useNextVariants: true
   },
   palette: {
-    primary: { 500: lightBlue[500] }
+    primary: {
+      light: lightBlue[100],
+      main: lightBlue[500],
+      dark: lightBlue[900]
+    }
     // secondary: grey
   }
 })
