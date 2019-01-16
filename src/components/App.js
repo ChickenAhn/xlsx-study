@@ -13,6 +13,7 @@ import PermanentDrawer from './PermanentDrawer'
 import Home from './Home'
 import CommentChecker from './CommentChecker'
 import { lightBlue } from '@material-ui/core/colors'
+import NotYet from './NotYet'
 
 const styles = theme => ({
   root: {
@@ -48,8 +49,10 @@ const App = props => {
       <Router>
         <PermanentDrawer>
           <Route exact path="/" component={Home} />
-          <Route path="/parser" component={Parser} />
+          <Route path="/parser" component={NotYet} />
           <Route path="/comment-checker" component={CommentChecker} />
+          <Route path="/find-hidden-sheet" component={NotYet} />
+          <Route path="/fill-out-form" component={NotYet} />
         </PermanentDrawer>
       </Router>
       {/* <Grid container className={classes.root} spacing={16} justify="center">
